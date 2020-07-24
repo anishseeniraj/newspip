@@ -1,5 +1,7 @@
 import time
 
+import pandas as pd
+import numpy as np
 from selenium import webdriver
 
 
@@ -41,8 +43,13 @@ driver.get("https://www.reuters.com/companies/AAPL.OQ/news")
 article_listings = []
 article_listings = driver.find_elements_by_class_name("MarketStoryItem-container-3rpwz")
 
+data = []
+
 # Retrieve data from each article listing
 for article_listing in article_listings:
+    # Holds current article's details
+    article_details = []
+
     # Split text into headline and first sentence
     article_listing_components = article_listing.text.split("\n")
     headline = article_listing_components[0]
@@ -64,7 +71,26 @@ for article_listing in article_listings:
     driver.close()
     driver.switch_to_window(driver.window_handles[0])
 
-    # Headline, first sentence, date
-    print(headline)
-    print(sentence)
-    print(date)
+    # Appending data to current article details
+    article_details.append(date)
+    article_details.append(headline)
+    article_details.append(sentence)
+
+    # Appending current article details to final data list
+    data.append(article_details)
+
+# Obtaining individual columns
+data = np.array(data)
+dates = data[:, 0]
+headlines = data[:, 1]
+sentences = data[:, 2]
+column_headers = ["Date", "Headline", "Sentence"]
+
+# Wrapping a pandas DataFrame around the data
+aapl_news = pd.DataFrame(columns=column_headers)
+aapl_news["Date"] = dates
+aapl_news["Headline"] = headlines
+aapl_news["Sentence"] = sentences
+
+# Exporting news data to a CSV
+aapl_news.to_csv("aapl_news.csv", index=False)
