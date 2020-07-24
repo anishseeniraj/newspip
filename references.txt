@@ -1,0 +1,1 @@
+1. https://dev.to/hellomrspaceman/python-selenium-infinite-scrolling-3o12 - infinite scrolling
