@@ -32,7 +32,7 @@ driver.implicitly_wait(30)
 
 # Go to Reuters AAPL newsfeed
 driver.get("https://www.reuters.com/companies/AAPL.OQ/news")
-scroll(driver, 5)
+# scroll(driver, 5)
 
 # Get all text within the article listing
 # article_listing = driver.find_element_by_xpath("//*[@id='__next']/div/div[4]/div[1]/div/div/div/div[2]/div[1]/div")
@@ -49,19 +49,22 @@ for article_listing in article_listings:
     sentence = article_listing_components[1]
 
     # Obtain the article for the current listing
-    # article = driver.find_element_by_link_text(headline)
-    # article_link = article.get_attribute("href")
+    article = driver.find_element_by_link_text(headline)
+    article_link = article.get_attribute("href")
 
-    # Go to current news article
-    # driver.get(article_link)
+    # Go to current news article in a new window
+    driver.execute_script("window.open('');")
+    driver.switch_to.window(driver.window_handles[1])
+    driver.get(article_link)
 
     # Retrieve date from the article
-    # date = driver.find_element_by_class_name("ArticleHeader_date").text[0:13]
+    date = driver.find_element_by_class_name("ArticleHeader_date").text[0:13]
 
-    # Go back to the main article listing page
-    # driver.back()
+    # Go back to the main article listings window
+    driver.close()
+    driver.switch_to_window(driver.window_handles[0])
 
     # Headline, first sentence, date
     print(headline)
     print(sentence)
-    # print(date)
+    print(date)
