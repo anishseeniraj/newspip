@@ -34,7 +34,7 @@ driver.implicitly_wait(30)
 
 # Go to Reuters AAPL newsfeed
 driver.get("https://www.reuters.com/companies/AAPL.OQ/news")
-# scroll(driver, 5)
+scroll(driver, 5)
 
 # Get all text within the article listing
 # article_listing = driver.find_element_by_xpath("//*[@id='__next']/div/div[4]/div[1]/div/div/div/div[2]/div[1]/div")
