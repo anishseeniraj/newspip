@@ -8,7 +8,7 @@ class Reuters:
     url_scheme = "https://"
     url_host = "www.reuters.com/"
     url_path = "companies/"
-    driver_path = "D:/talks-of-stocks/scraper/chromedriver_win32/chromedriver.exe"
+    driver_path = "D:/talks-of-stocks/scrapers/chromedriver_win32/chromedriver.exe"
 
 
     def __init__(self, ticker):
@@ -21,7 +21,7 @@ class Reuters:
 
     def open_newsfeed(self):
         self.driver.get(self.url)
-        # scroll(self.driver, 5)
+        scroll(self.driver, 5)
 
 
     def get_article_listings(self):
@@ -50,7 +50,8 @@ class Reuters:
             self.driver.get(article_link)
 
             # Retrieve article date
-            date = self.driver.find_element_by_class_name("ArticleHeader_date").text[0:13]
+            date_components = self.driver.find_element_by_class_name("ArticleHeader_date").text.split("/")
+            date = date_components[0][0:-1] # removes the space at the end
 
             # Go back to main article listings tab
             self.driver.close()
@@ -83,8 +84,8 @@ class Reuters:
         self.dataset.to_csv(self.ticker + "_news.csv", index=False)
 
 
-# aapl_scraper = Reuters("AAPL")
-# aapl_scraper.open_newsfeed()
-# aapl_scraper.get_article_listings()
-# aapl_scraper.get_data()
-# aapl_scraper.export_data()
+aapl_scraper = Reuters("AAPL")
+aapl_scraper.open_newsfeed()
+aapl_scraper.get_article_listings()
+aapl_scraper.get_data()
+aapl_scraper.export_data()
