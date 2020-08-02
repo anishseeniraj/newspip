@@ -1,2 +1,3 @@
 1. https://dev.to/hellomrspaceman/python-selenium-infinite-scrolling-3o12 - infinite scrolling
 2. https://medium.com/@pavel.tashev/python-and-selenium-open-focus-and-close-a-new-tab-4cc606b73388 - opening link in a new tab
+3. https://medium.com/analytics-vidhya/natural-language-processing-from-scratch-sentiment-analysis-e09711d4f7eb - Sentiment Analysis
