@@ -63,6 +63,7 @@ Data is scraped from Reuters, cleaned, and then fitted with models.
 	  <h4>Sentiment Analysis</h4>
 	  This is the final step in the pipeline where multiple models are fitted on the dataset to compare predictions. There's room for expansion at this stage. Since the previous steps have been abstracted away to accommodate any stock, you can only focus on model building/optimizing without having to worry about data collection and cleaning (refer "pipeline/sentiment_analysis.ipynb"). 
 	  </li>
+</ol>
   
 ## Scope of Improvement
 <li>Adding more classification models</li>
