@@ -1,6 +1,6 @@
 # Newspip
 
-Supposedly, feature engineering is cool. <a href="[https://github.com/anishseeniraj/stockastic](https://github.com/anishseeniraj/stockastic)">Stockastic</a> is okay and all, but surely raw time series forecasting isn't the way to go for predicting stock prices. Incorporate this NLP pipeline in your projects if you want more accurate stock forecasts with an additional feature (company financial news).
+Supposedly, feature engineering is cool. <a href="https://github.com/anishseeniraj/stockastic">Stockastic</a> is okay and all, but surely raw time series forecasting isn't the way to go for predicting stock prices. Incorporate this NLP pipeline in your projects if you want more accurate stock forecasts with an additional feature (company financial news).
 
 ## Table of Contents
 
